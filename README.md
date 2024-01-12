@@ -11,10 +11,10 @@ pembuatan aplikasi data barang
 ![2.png](2.png)
 
 ### Setelah proses login berhasil, terdapat beberapa pilihan pada bagian atas dengan fitur sesuai dengan fungsi nya. 
-![31.png](31.png)
+![31.png](/31.png)
 
 ### Yang pertama kita menuju ke Data master kemudian ke data barang untuk melihat barang yang ada pada sistem penjualan,  pada data barang dapat melakukan tambah,edit,hapus pada tabel kategori dan dapat mencari jenis kategori yang kita ingin cari.
-![41.png](41.png)
+![41.png](/41.png)
 
 ### Setelah itu pada data master terdapat data kategori barang yang fungsinya sama seperti data barang dapat melakukan tambah,edit,hapus dan mencari. 
 ![5.png](5.png)
