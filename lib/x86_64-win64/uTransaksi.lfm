@@ -1,0 +1,226 @@
+object TfrmTransaksi: TTfrmTransaksi
+  Left = 536
+  Height = 960
+  Top = 230
+  Width = 1347
+  Caption = 'Transaksi'
+  ClientHeight = 960
+  ClientWidth = 1347
+  DesignTimePPI = 192
+  OnCreate = FormCreate
+  object Label1: TLabel
+    Left = 512
+    Height = 64
+    Top = 53
+    Width = 363
+    AutoSize = False
+    Caption = 'Transaksi Penjualan'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -38
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 96
+    Height = 323
+    Top = 213
+    Width = 1141
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    DefaultRowHeight = 46
+    TabOrder = 0
+  end
+  object DBGrid2: TDBGrid
+    Left = 96
+    Height = 299
+    Top = 587
+    Width = 1141
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource2
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 96
+    Height = 51
+    Top = 149
+    Width = 483
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 51
+    ClientWidth = 483
+    DataSource = DataSource2
+    OnClick = DBNavigator1Click
+    Options = []
+    ParentShowHint = False
+    TabOrder = 2
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert]
+  end
+  object BCari: TButton
+    Left = 907
+    Height = 51
+    Top = 149
+    Width = 150
+    Caption = 'Cari'
+    TabOrder = 3
+    OnClick = BCariClick
+  end
+  object ECari: TEdit
+    Left = 608
+    Height = 40
+    Top = 157
+    Width = 277
+    TabOrder = 4
+    TextHint = 'Cari data'
+  end
+  object BReset: TButton
+    Left = 1088
+    Height = 51
+    Top = 149
+    Width = 150
+    Caption = 'Reset'
+    TabOrder = 5
+    OnClick = BResetClick
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    OnUpdateData = FormCreate
+    Left = 341
+    Top = 331
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery2
+    Left = 608
+    Top = 715
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'tanggal'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'customer'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end    
+      item
+        Name = 'sub_total'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'diskon'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'total'
+        DataType = ftFloat
+        Precision = -1
+      end>
+    Active = True
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from transaksi'
+    )
+    Params = <>
+    Macros = <>
+    Left = 555
+    Top = 331
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'latihan1'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    HostName = 'localhost'
+    ConnectorType = 'ODBC'
+    Left = 747
+    Top = 331
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 917
+    Top = 331
+  end
+  object SQLQuery2: TSQLQuery
+    PacketRecords = 1
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'kategori'
+        DataType = ftString
+        Precision = -1
+        Size = 110
+      end    
+      item
+        Name = 'nama'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end    
+      item
+        Name = 'gambar'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end    
+      item
+        Name = 'harga_beli'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'harga_jual'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'stok'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Active = True
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from data_barang'
+    )
+    Params = <>
+    Macros = <>
+    UpdateMode = upWhereAll
+    Left = 736
+    Top = 715
+  end
+end

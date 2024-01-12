@@ -1,0 +1,262 @@
+object TfrmReport: TTfrmReport
+  Left = 382
+  Height = 489
+  Top = 250
+  Width = 814
+  Caption = 'Report'
+  ClientHeight = 489
+  ClientWidth = 814
+  DesignTimePPI = 120
+  object DBGrid1: TDBGrid
+    Left = 27
+    Height = 253
+    Top = 167
+    Width = 747
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object BCari: TButton
+    Left = 487
+    Height = 32
+    Top = 80
+    Width = 134
+    Caption = 'Cari'
+    OnClick = BCariClick
+    TabOrder = 1
+  end
+  object ECari: TEdit
+    Left = 240
+    Height = 28
+    Top = 82
+    Width = 233
+    TabOrder = 2
+    TextHint = 'customer'
+  end
+  object BReset: TButton
+    Left = 640
+    Height = 32
+    Top = 80
+    Width = 133
+    Caption = 'Reset'
+    OnClick = BResetClick
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 340
+    Height = 37
+    Top = 13
+    Width = 105
+    Caption = 'Laporan'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -27
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BLaporan: TButton
+    Left = 653
+    Height = 32
+    Top = 433
+    Width = 120
+    Caption = 'Cetak'
+    OnClick = BLaporanClick
+    TabOrder = 4
+  end
+  object DateEdit1: TDateEdit
+    Left = 240
+    Height = 28
+    Top = 122
+    Width = 267
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 28
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 5
+    Text = 'DateEdit1'
+    TextHint = 'From Date'
+  end
+  object Label2: TLabel
+    Left = 180
+    Height = 23
+    Top = 122
+    Width = 44
+    Caption = 'From:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -17
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DateEdit2: TDateEdit
+    Left = 540
+    Height = 28
+    Top = 122
+    Width = 267
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    DateOrder = doNone
+    ButtonWidth = 28
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 6
+    Text = 'DateEdit2'
+    TextHint = 'To Date'
+  end
+  object Label3: TLabel
+    Left = 513
+    Height = 23
+    Top = 120
+    Width = 21
+    Caption = 'To:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -17
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 400
+    Top = 300
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'customer'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end    
+      item
+        Name = 'tanggal_transaksi'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'jumlah'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'diskon_beli_barang'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'diskon_transaksi'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'sub_total'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'total'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'harga_beli'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'harga_jual'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'nama_barang'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end    
+      item
+        Name = 'kategori'
+        DataType = ftString
+        Precision = -1
+        Size = 100
+      end>
+    Active = True
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT'
+      '    dt.id,'
+      '    t.customer,'
+      '    t.tanggal AS tanggal_transaksi,'
+      '    dt.jumlah,'
+      '    dt.diskon AS diskon_beli_barang,'
+      '    t.diskon AS diskon_transaksi,'
+      '    t.sub_total,'
+      '    t.total,'
+      '    db.harga_beli,'
+      '    db.harga_jual,'
+      '    db.nama AS nama_barang,'
+      '    k.nama AS kategori'
+      'FROM'
+      '    detail_transaksi AS dt'
+      'JOIN'
+      '    data_barang AS db ON db.id = dt.barang_id'
+      'JOIN'
+      '    kategori AS k ON k.id = db.id'
+      'JOIN'
+      '    transaksi AS t ON dt.transaksi_id = t.id;'
+      ''
+    )
+    Params = <>
+    Macros = <>
+    Left = 167
+    Top = 300
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'ritshu'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 280
+    Top = 300
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 67
+    Top = 300
+  end
+  object frReport1: TfrReport
+    Dataset = frDBDataSet1
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    Left = 507
+    Top = 300
+  end
+  object frDBDataSet1: TfrDBDataSet
+    DataSet = SQLQuery1
+    OnCheckEOF = frDBDataSet1CheckEOF
+    Left = 607
+    Top = 300
+  end
+end

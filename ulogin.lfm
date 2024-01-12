@@ -1,0 +1,112 @@
+object TfrmLogin: TTfrmLogin
+  Left = 660
+  Height = 576
+  Top = 283
+  Width = 730
+  Caption = 'Login'
+  ClientHeight = 576
+  ClientWidth = 730
+  DesignTimePPI = 192
+  object Label1: TLabel
+    Left = 331
+    Height = 59
+    Top = 64
+    Width = 113
+    Caption = 'Login'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -43
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BLogin: TButton
+    Left = 226
+    Height = 51
+    Top = 341
+    Width = 150
+    Caption = 'Login'
+    TabOrder = 0
+    OnClick = BLoginClick
+  end
+  object Label2: TLabel
+    Left = 101
+    Height = 32
+    Top = 170
+    Width = 114
+    Caption = 'Username'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 101
+    Height = 32
+    Top = 256
+    Width = 108
+    Caption = 'Password'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object EUsername: TEdit
+    Left = 226
+    Height = 40
+    Top = 170
+    Width = 352
+    TabOrder = 1
+    TextHint = 'Masukkan username'
+  end
+  object EPassword: TEdit
+    Left = 224
+    Height = 40
+    Top = 256
+    Width = 354
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 2
+    TextHint = 'Masukkan password'
+  end
+  object BExit: TButton
+    Left = 427
+    Height = 51
+    Top = 341
+    Width = 150
+    Caption = 'Exit'
+    TabOrder = 3
+    OnClick = BExitClick
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 538
+    Top = 435
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'latihan1'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    HostName = 'localhost'
+    ConnectorType = 'ODBC'
+    Left = 77
+    Top = 410
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLConnector1
+    Left = 307
+    Top = 461
+  end
+end
