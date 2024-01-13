@@ -1,11 +1,11 @@
 # pemrograman_visual_uas
 pembuatan aplikasi data barang
 
-`Nama:Febri Aditiya `
-`Nim:312010212`
-`TI.20.A.RPL-1`
+`Nama:Febri Aditiya 
+ Nim:312010212
+ TI.20.A.RPL-1`
 
-`## link Demo Aplikasi : https://youtu.be/X1xV_um9Wd8?si=JH0fjfUlTARhhlV9`
+`link Demo Aplikasi : https://youtu.be/X1xV_um9Wd8?si=JH0fjfUlTARhhlV9`
 
 ## Tahapan Vitur yang ada pada sistem penjualan
 ### Yang pertama klik file  lalu pilih login
